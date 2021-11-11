@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block base_content %}
+
+    <div class="archive__container">
+        <div class="archive__main">
+
+            {% include 'partials/content-header.twig' with {
+                'header': 'archive'
+            } %}
+
+            {% block content %}{% endblock %}
+
+            {% if paging %}
+                <footer class="section__footer">
+                    {{ paging }}
+                </footer>
+            {% endif %}
+
+        </div>
+
+        {% include 'partials/sidebar.twig' %}
+
+    </div>
+
+{% endblock %}

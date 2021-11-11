@@ -1,0 +1,13 @@
+{% if show_sidebar %}
+
+    {% if ( function( 'is_singular' ) ) %}
+        {% set sidebar_type = 'article' %}
+    {% endif %}
+
+    <div class="{{ sidebar_type|default('archive') }}__aside">
+        <div class="sidebar">
+            {{ sidebar }}
+        </div>
+    </div>
+
+{% endif %}

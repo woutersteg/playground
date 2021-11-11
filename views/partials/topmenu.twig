@@ -1,0 +1,34 @@
+<header class="site__header">
+    <div class="container">
+        {# {% if options.settings.site_logo %}
+            {% set site_logo = TimberImage( options.settings.site_logo ) %}
+            <div class="logo">
+                <a href="{{ function( 'home_url' ) }}">
+                    {{ macro.image(site_logo, 'site_logo', options.fallback_images.default) }}
+                </a>
+            </div>
+        {% endif %} #}
+        <div class="logo">
+            <a href="{{ function( 'home_url' ) }}">
+                <i class="fas fa-gamepad"></i>
+            </a>
+        </div>
+        <div class="site__header-topmenu">
+            {% include 'partials/nav.twig' with {
+                'items'    : menu_main.get_items,
+                'modifier' : 'site'
+            } %}
+        </div>
+
+        {% if menu_expand %}
+            <div class="site__header-icons">
+                <a class="button button--icon-right nav__trigger nav__trigger--open">
+                    <span class="button__label">
+                        {{ __( 'Menu', 'boilerplate' ) }}
+                    </span>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+</header>

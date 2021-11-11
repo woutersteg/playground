@@ -1,0 +1,30 @@
+{% if post.thumbnail %}
+    {% set image = TimberImage(post.thumbnail) %}
+{% endif %}
+
+<div class="post__grid-item"
+     data-category="{% for category in post.terms('category') %}{{ category.slug }}{% endfor %}">
+
+    <div class="post__grid-image">
+        <img src="{{ post.thumbnail.src('large') }}" class="image" alt="Image for {{ post.title }}">
+    </div>
+
+    <div class="post__grid-text">
+
+        <h2 class="post-result__heading name">
+            <a class="post-result__link" href="{{ post.link }}">
+                {{ post.title }}
+            </a>
+        </h2>
+
+        <small>
+            Posted in: {{ post.terms('category') | join(', ') }}
+        </small>
+
+        <p>
+            {{ post.preview.length(35).read_more('Continue Reading') }}
+        </p>
+
+    </div>
+
+</div>

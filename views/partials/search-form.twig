@@ -1,0 +1,14 @@
+{% set modifier = modifier|default(0) %}
+
+<div class="search{% if modifier %} search--{{ modifier }}{%endif%}">
+    <form class="form form--search" action="{{ site.url }}" method="get">
+        <fieldset>
+            <div class="form__item form__item--simple">
+                <label>
+                    <input type="search" name="s" class="search__input" placeholder="{{ __( 'Search', 'boilerplate' ) }}" />
+                </label>
+                <button type="submit" class="button button--submit">{{ __( 'Submit', 'boilerplate' ) }}</button>
+            </div>
+        </fieldset>
+    </form>
+</div>

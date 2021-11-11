@@ -1,0 +1,12 @@
+{% extends "base-archive.twig" %}
+
+{% block content %}
+
+    {% include 'partials/grid.twig' with {
+        'max_items'  : false,
+        'posts'      : posts,
+        'timberpost' : false,
+        'title'      : false
+    } %}
+
+{% endblock %}

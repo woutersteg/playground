@@ -1,0 +1,29 @@
+{% if post.thumbnail %}
+    {% set image = TimberImage(post.thumbnail) %}
+{% endif %}
+
+<div class="hero__slider_wrapper" data-category="{% for category in post.terms('category') %}{{ category.slug }}{% endfor %}">
+
+    <div class="hero__slider-image">
+        <img src="{{ post.thumbnail.src('full') }}" class="image" alt="Image for {{ post.title }}">
+    </div>
+
+    <div class="hero__slider-text">
+
+        <h2 class="post-result__heading name">
+            <a class="post-result__link" href="{{ post.link }}">
+                {{ post.title }}
+            </a>
+        </h2>
+
+        <small>
+            Posted in: {{ post.terms('category') | join(', ') }}
+        </small>
+
+        <p class="post-result__excerpt">
+            {{ post.preview.length(35).read_more('Continue Reading') }}
+        </p>
+
+    </div>
+
+</div>

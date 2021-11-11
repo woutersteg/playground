@@ -1,0 +1,24 @@
+{% extends "base.twig" %}
+
+{% block base_content %}
+
+    <div class="article__container">
+        <div class="article__main">
+
+            <article class="article{% if function( 'is_singular') %} article--{{ post.ID }}" id="post--{{ post.ID }}{% endif %}">
+
+                {% include 'partials/content-header.twig' with {
+                    'header': 'article'
+                } %}
+
+                {% block content %}{% endblock %}
+
+            </article>
+
+        </div>
+
+        {% include 'partials/sidebar.twig' %}
+
+    </div>
+
+{% endblock %}

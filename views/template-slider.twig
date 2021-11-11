@@ -1,0 +1,16 @@
+
+{% if post.thumbnail %}
+    {% set image = TimberImage(post.thumbnail) %}
+{% endif %}
+
+{% block content %}
+    {% if posts %}
+        {% for post in posts %}
+            {% set post = TimberPost( post.ID ) %}
+            {% include 'teasers/posts-slider.twig' with {
+                'post': post,
+                'numberposts': 3
+            } %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

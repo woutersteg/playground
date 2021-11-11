@@ -1,0 +1,15 @@
+{% if posts %}
+    <div class="overview{% if modifier %} overview--{{ modifier }}{% endif %}">
+        {% if title %}<div class="overview__heading">{{ title }}</div>{% endif %}
+        <div class="overview__list{% if modifier %} overview__list--{{ modifier }}{% endif %}">
+            {% for post in posts %}
+                <div class="overview__list-item{% if modifier %} overview__list-item--{{ modifier }}{% endif %}">
+                    {% set post = TimberPost( post.ID ) %}
+                    {% include 'teasers/' ~ teaser|default('archive') ~ '.twig' with {
+                        'post': post
+                    } %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

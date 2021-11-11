@@ -1,0 +1,14 @@
+<footer>
+    <div class="site__footer">
+        <div class="container">
+            <div class="nav__panels">
+                <div class="nav__panel">
+                    {% include 'partials/nav.twig' with {
+                        'items'    : menu_footer.get_items,
+                        'modifier' : 'footer'
+                    } %}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

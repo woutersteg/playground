@@ -1,0 +1,18 @@
+{% if posts %}
+    {% if title %}<div class="grid__heading">{{ title }}</div>{% endif %}
+    <div class="grid{% if modifier %} grid--{{ modifier }}{% endif %}">
+        {% for post in posts if not break %}
+            <div class="grid__item{% if modifier %} grid__item--{{ modifier }}{% endif %}">
+                {% if timberpost %}
+                    {% set post = TimberPost( post.ID ) %}
+                {% endif %}
+                {% include 'teasers/' ~ teaser|default(modifier)|default('archive') ~ '.twig' with {
+                    'post': post
+                } %}
+                {% if max_items == loop.index %}
+                    {% set break = true %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

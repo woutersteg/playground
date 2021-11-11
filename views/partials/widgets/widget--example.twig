@@ -1,0 +1,11 @@
+{{ args.before_widget }}
+
+    {% include 'partials/widgets/widget-title.twig' with {
+        'widget_title' : widget_title
+    } %}
+
+    <div class="widget__content{% if modifier %} widget__content--{{ modifier }}{% endif %}">
+
+    </div>
+
+{{ args.after_widget }}

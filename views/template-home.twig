@@ -1,0 +1,21 @@
+{% extends 'base-singular.twig' %}
+
+{% if post.thumbnail %}
+    {% set image = TimberImage(post.thumbnail) %}
+{% endif %}
+
+{% block content %}
+
+    <div class="entry-content">
+        <div class="hero__slider">
+            {% include 'views/template-slider.twig' with {
+                'posts' : posts
+            } %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
